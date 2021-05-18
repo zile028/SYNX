@@ -5,6 +5,91 @@
 
 /* ----------------------------------- */
 /* BASIC STYLE */
-
+.btn {
+  @include btn($crvena, transparent, $bela, $tamnoSiva, transparent, $bela);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;
+}
 /* ----------------------------------- */
+/* header */
+header {
+  background-image: linear-gradient(rgba($crna, 0.4), rgba($crna, 0.4)),
+    url(../img/header.jpg);
+  @include bgBasic;
+  @include flex(center, center, column);
+  height: 100vh;
+  nav {
+    background: linear-gradient(rgba($tamnoSiva, 0.2), rgba($tamnoSiva, 0.2)),
+      $bela;
+    @include flex;
+    width: 90%;
+    position: fixed;
+    top: 30px;
+    padding: 10px 30px;
+    .logo {
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 700;
+      font-family: "Gugi", sans-serif;
+      display: block;
+      text-align: center;
+      color: $tamnoSiva;
+      letter-spacing: 2px;
+      span {
+        font-size: 0.6ch;
+        display: block;
+      }
+      &::first-letter {
+        color: $crvena;
+      }
+      &:hover {
+        color: $crvena;
+      }
+    }
+    ul {
+      @include flex(flex-end, center);
+      text-transform: uppercase;
+      flex-grow: 1;
+      li {
+        margin-left: 3%;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: $tamnoSiva;
+        &:hover {
+          color: $crvena;
+        }
+      }
+    }
+  }
+  article {
+    color: $bela;
+    text-align: center;
+    width: 90%;
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.4rem;
+      padding: 1.5em 0;
+    }
+  }
+}
+
+/* features */
+.features {
+  @include flex;
+  article {
+    flex: 0 0 50%;
+    &:first-child {
+      @include flex(center, flex-start, column);
+      background-color: rgba($tamnoSiva, 0.1);
+      padding: 50px;
+    }
+  }
+}
+/* GLOBAL */
+/* GLOBAL */
+/* GLOBAL */
 /* GLOBAL */
