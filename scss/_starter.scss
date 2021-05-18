@@ -1,0 +1,74 @@
+/*--- FONTS ---*/
+@import url("https://fonts.googleapis.com/css?family=Gugi|Kaushan+Script|Source+Sans+Pro");
+
+$textFont: "Source Sans Pro", sans-serif;
+$textHeadings: "Kaushan Script", cursive;
+// $fontNav: "Montserrat", sans-serif;
+$fontSize: 16px;
+
+/*--- COLORS ---*/
+$tamnoSiva: #414141;
+$crvena: #ef233c;
+$bela: #fff;
+$crna: #000000;
+
+/* EFFECTS */
+$transition: 0.4s ease;
+$boxShadow: 0 5px 10px 0px rgba($crna, 0.5);
+
+/* INITIAL VALUE */
+$py: 70px 0;
+$widthContainer: 90%;
+$lineHeight: 1.7;
+
+/* RESET STYLE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASIC STYLE */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $textFont;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $textHeadings;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: $transition;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.container {
+  width: $widthContainer;
+  margin: 0 auto;
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+}
+.py {
+  padding: $py;
+  @media (max-width: 767px) {
+    padding: 35px 0;
+  }
+}
