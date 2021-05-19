@@ -12,6 +12,30 @@
   letter-spacing: 2px;
   display: inline-block;
 }
+h6 {
+  font-family: $textFont;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  color: $crvena;
+}
+.container {
+  &-big {
+    margin: 0 auto;
+    width: 95%;
+  }
+  &-mid {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+.underline {
+  border: none;
+  background-color: $crvena;
+  height: 3px;
+  width: 100px;
+  margin-top: 10px;
+}
 /* ----------------------------------- */
 /* header */
 header {
@@ -28,6 +52,7 @@ header {
     position: fixed;
     top: 30px;
     padding: 10px 30px;
+    transition: $transition;
     .logo {
       font-size: 2rem;
       line-height: 1;
@@ -77,15 +102,228 @@ header {
   }
 }
 
-/* features */
-.features {
-  @include flex;
+/* about */
+.about {
+  @include flex($x: flex-start);
+  background-image: url(../img/one.jpg);
+  // background-size: 50% auto;
+  background-repeat: no-repeat;
+  // background-position: right;
+  @include bgBasic(center right, 50% auto);
   article {
+    @include flex(flex-start, center, column);
     flex: 0 0 50%;
+    padding: 100px 50px;
+    margin: 0 auto 0 0;
+    h2 {
+      margin: 30px 0;
+    }
+    .btn {
+      margin-top: 30px;
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* services */
+.services {
+  background-color: rgba($tamnoSiva, 0.05);
+  text-align: center;
+  hr {
+    margin: 40px auto;
+  }
+  article {
+    @include flex;
+    text-align: left;
+    width: 95%;
+    margin: 50px auto 0;
+    div {
+      flex: 0 0 30%;
+    }
+    i,
+    a {
+      color: $crvena;
+    }
+    a {
+      text-decoration: underline;
+      margin-top: 20px;
+      display: inline-block;
+    }
+  }
+}
+
+/* creative */
+.creative {
+  padding: 150px 0;
+  text-align: right;
+  h6 {
+    margin-bottom: 200px;
+  }
+}
+
+/* team */
+.team {
+  text-align: center;
+  h2 {
+    font-size: 2.8rem;
+    padding-bottom: 50px;
+  }
+  article {
+    @include flex($x: flex-end);
+    height: 45vh;
+    &:nth-child(even) {
+      .wrapper {
+        order: -1;
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+    .wrapper {
+      @include flex($x: flex-start, $y: center, $dir: column);
+      flex: 0 0 50%;
+      background-color: rgba($tamnoSiva, 0.05);
+      padding: 0 50px;
+      text-align: left;
+      h3 {
+        color: $crvena;
+        font-size: 2rem;
+      }
+      h4 {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+      }
+      ul {
+        width: 80%;
+        margin-top: 30px;
+        @include flex($x: space-between);
+        li {
+          color: $crvena;
+          display: inline-block;
+          font-size: 1.8rem;
+        }
+      }
+    }
+    img {
+      flex: 0 0 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* works */
+.works {
+  hgroup {
+    text-align: center;
+    background-color: $crvena;
+    color: $bela;
     &:first-child {
-      @include flex(center, flex-start, column);
-      background-color: rgba($tamnoSiva, 0.1);
+      padding: 60px 0;
+    }
+    &:last-child {
+      padding: 30px 0;
+    }
+    h6 {
+      color: $bela;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    h5 {
+      font-size: 1.3rem;
+    }
+  }
+  article {
+    height: 100vh;
+    @include flex;
+    .half {
+      @include flex;
+      flex: 0 0 50%;
+      height: 100%;
+      div {
+        flex: 0 0 50%;
+        height: 50%;
+      }
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* blog */
+.blog {
+  @include flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  article {
+    flex: 0 0 24%;
+    text-align: center;
+    h2 {
+      font-size: 3.5rem;
+      color: $crvena;
+    }
+    h4 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 30px 0 20px;
+    }
+  }
+}
+
+/* price */
+.price {
+  hgroup {
+    text-align: center;
+    h6 {
+      color: $crna;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  article {
+    @include flex;
+    margin-top: 50px;
+    div {
+      flex: 1;
       padding: 50px;
+      &.action {
+        box-shadow: $boxShadow;
+      }
+      h5 {
+        font-size: 1.3rem;
+      }
+      h2 {
+        font-size: 2rem;
+        &:after {
+          content: "/year";
+          display: inline-block;
+          color: $crvena;
+          font-size: 0.7em;
+          font-family: $textFont;
+          top: -0.5em;
+          margin-left: 10px;
+          position: relative;
+        }
+      }
+      ul {
+        margin-top: 50px;
+        li {
+          line-height: 2;
+          &::before {
+            content: "\f14a";
+            font-weight: 400;
+            font-family: "Font Awesome 5 Free";
+            margin-right: 5px;
+            color: $crvena;
+          }
+        }
+      }
     }
   }
 }
