@@ -23,6 +23,9 @@ h6 {
   &-big {
     margin: 0 auto;
     width: 95%;
+    @media (max-width: 767px) {
+      width: 90%;
+    }
   }
   &-mid {
     margin: 0 auto;
@@ -73,18 +76,50 @@ header {
         color: $crvena;
       }
     }
+    #menuBtn {
+      display: none;
+      font-size: 1.3em;
+      width: 2em;
+      height: 2em;
+      cursor: pointer;
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
     ul {
       @include flex(flex-end, center);
       text-transform: uppercase;
       flex-grow: 1;
+      @media (max-width: 767px) {
+        @include flex($x: center, $y: flex-start, $dir: column);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 5%;
+        transition: $transition;
+        background: linear-gradient(
+            rgba($tamnoSiva, 0.2),
+            rgba($tamnoSiva, 0.2)
+          ),
+          $bela;
+        transform: scaleY(0);
+        transform-origin: top;
+      }
       li {
         margin-left: 3%;
         font-weight: 600;
         font-size: 1.2rem;
         color: $tamnoSiva;
+        @media (max-width: 767px) {
+          line-height: 2em;
+        }
         &:hover {
           color: $crvena;
         }
+      }
+      &.showMenu {
+        transform: scaleY(1);
       }
     }
   }
@@ -98,6 +133,10 @@ header {
     p {
       font-size: 1.4rem;
       padding: 1.5em 0;
+      @media (max-width: 767px) {
+        font-size: 1.2rem;
+        text-shadow: 0 0 2px $crna;
+      }
     }
   }
 }
@@ -105,16 +144,25 @@ header {
 /* about */
 .about {
   @include flex($x: flex-start);
-  background-image: url(../img/one.jpg);
-  // background-size: 50% auto;
-  background-repeat: no-repeat;
-  // background-position: right;
-  @include bgBasic(center right, 50% auto);
   article {
-    @include flex(flex-start, center, column);
     flex: 0 0 50%;
-    padding: 100px 50px;
+    height: 50vh;
     margin: 0 auto 0 0;
+    @media (max-width: 767px) {
+      flex: 0 0 100%;
+    }
+    &:first-child {
+      @include flex(flex-start, center, column);
+      padding: 0 50px;
+      @media (max-width: 767px) {
+        height: auto;
+        padding: 50px;
+      }
+    }
+    &:last-child {
+      background-image: url(../img/one.jpg);
+      @include bgBasic();
+    }
     h2 {
       margin: 30px 0;
     }
@@ -135,13 +183,24 @@ header {
   hr {
     margin: 40px auto;
   }
+  hgroup,
+  article {
+    width: 95%;
+    @media (max-width: 767px) {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
   article {
     @include flex;
     text-align: left;
-    width: 95%;
     margin: 50px auto 0;
     div {
       flex: 0 0 30%;
+      @media (max-width: 767px) {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+      }
     }
     i,
     a {
@@ -159,8 +218,14 @@ header {
 .creative {
   padding: 150px 0;
   text-align: right;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
   h6 {
     margin-bottom: 200px;
+    @media (max-width: 767px) {
+      margin-bottom: 100px;
+    }
   }
 }
 
@@ -174,11 +239,17 @@ header {
   article {
     @include flex($x: flex-end);
     height: 45vh;
+    @media (max-width: 767px) {
+      height: auto;
+    }
     &:nth-child(even) {
       .wrapper {
         order: -1;
         align-items: flex-end;
         text-align: right;
+        @media (max-width: 767px) {
+          order: 0;
+        }
       }
     }
     .wrapper {
@@ -187,6 +258,9 @@ header {
       background-color: rgba($tamnoSiva, 0.05);
       padding: 0 50px;
       text-align: left;
+      @media (max-width: 767px) {
+        flex: 0 0 100%;
+      }
       h3 {
         color: $crvena;
         font-size: 2rem;
@@ -199,6 +273,9 @@ header {
         width: 80%;
         margin-top: 30px;
         @include flex($x: space-between);
+        @media (max-width: 767px) {
+          width: 100%;
+        }
         li {
           color: $crvena;
           display: inline-block;
@@ -210,6 +287,9 @@ header {
       flex: 0 0 50%;
       height: 100%;
       object-fit: cover;
+      @media (max-width: 767px) {
+        flex: 0 0 100%;
+      }
     }
   }
 }
@@ -243,6 +323,10 @@ header {
       @include flex;
       flex: 0 0 50%;
       height: 100%;
+      @media (max-width: 767px) {
+        height: 50%;
+        flex: 0 0 100%;
+      }
       div {
         flex: 0 0 50%;
         height: 50%;
@@ -263,6 +347,9 @@ header {
   article {
     flex: 0 0 24%;
     text-align: center;
+    @media (max-width: 767px) {
+      flex: 0 0 100%;
+    }
     h2 {
       font-size: 3.5rem;
       color: $crvena;
@@ -292,6 +379,9 @@ header {
     div {
       flex: 1;
       padding: 50px;
+      @media (max-width: 767px) {
+        flex: 0 0 100%;
+      }
       &.action {
         box-shadow: $boxShadow;
       }
@@ -300,7 +390,7 @@ header {
       }
       h2 {
         font-size: 2rem;
-        &:after {
+        &::after {
           content: "/year";
           display: inline-block;
           color: $crvena;
@@ -309,6 +399,7 @@ header {
           top: -0.5em;
           margin-left: 10px;
           position: relative;
+          z-index: -1;
         }
       }
       ul {
